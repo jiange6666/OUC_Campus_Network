@@ -1,9 +1,9 @@
 # 中国海洋大学校园网登录工具，多wan聚合自动登录脚本提升网速等
 
 ## 使用前须知：
-1. 此帖主要针对_西海岸校区_，别的校区可自行测试
-2. 中国海洋大学有4个校区：崂山校区、鱼山校区、浮山校区、西海岸校区。多wan聚合登录脚本在西海岸校区实测可用（听海苑可能有限制不太好使），崂山校区实测可以直接设置多wan拨号连接不需要自动登录脚本，鱼山校区和浮山校区没测试过，但是理论上DHCP登录的都可行
-3. 西海岸校区实测最快可以100Mbps左右，就算是5口聚合也是100Mbps左右，原因不明，故性价比最高的是双口聚合或三口聚合
+1. 此帖主要针对**西海岸校区**，别的校区可自行测试
+2. 中国海洋大学有4个校区：**崂山校区**、**鱼山校区**、**浮山校区**、**西海岸校区**。多wan聚合登录脚本在**西海岸校区**实测可用（**听海苑**可能有限制不太好使），**崂山校区**实测可以直接设置多wan拨号连接不需要自动登录脚本，鱼山校区和浮山校区没测试过，但是理论上DHCP登录的都可行
+3. **西海岸校区**实测最快可以100Mbps左右，就算是5口聚合也是100Mbps左右，原因不明，故性价比最高的是双口聚合或三口聚合
 
 
 ## 更新日志
@@ -12,8 +12,8 @@
 
 
 ## 使用条件;
-1. 校园网登录工具exe：无路由器，非openwrt路由器
-2. 多wan聚合自动登录脚本： 多wan聚合自动登录脚本需配合openwrt系统的路由器使用，且路由器安装了mwan3多wan聚合软件包，并且配置负载均衡
+1. 校园网登录工具exe：**无路由器**，**非openwrt路由器**
+2. 多wan聚合自动登录脚本： 多wan聚合自动登录脚本需配合**openwrt系统**的路由器使用，且路由器安装了**mwan3多wan聚合软件包**，并且配置**负载均衡**
 
 ##
 海大的校园网一个月30元无限量，一个账号可以登3个设备，限速40Mbps，对于现在的时代来说有点慢，如果设备多的话，3个端口还不够用，所以开发了这个通过路由器来聚合自己的端口从而提升网速
@@ -29,7 +29,42 @@
       <img width="974" height="309" alt="820f6b35c7046747e80df54e43c15b77" src="https://github.com/user-attachments/assets/4931c55f-4e69-41a2-b8e4-531a276cfae4" />
 
 ### 二、校园网多wan聚合自动登录脚本教程
-1. 多wan聚合自动登录脚本需配合openwrt系统的路由器使用，且路由器安装了mwan3多wan聚合软件包，并且配置负载均衡（自己上网查教程学习）
+1. 多wan聚合自动登录脚本需配合**openwrt系统**的路由器使用，且路由器安装了**mwan3多wan聚合软件包**，并且配置**负载均衡**（自己上网查教程学习）
 2. 用winscp，用ssh（scp）连接路由器，将autologin_multi_user.sh上传至root文件夹中
+   <img width="425" height="210" alt="image" src="https://github.com/user-attachments/assets/d156cc0c-6201-4cee-b22d-49fe59cb141d" />
+3. 在winscp中打开已经上传好的autologin_multi_user.sh，打开的时候有报错**不用管他**
+   <img width="845" height="230" alt="image" src="https://github.com/user-attachments/assets/c33511f6-7e43-4272-9bdc-3ec58b845602" />
+   然后更改里面的路由器接口名，校园网账号和密码
+   <img width="750" height="204" alt="image" src="https://github.com/user-attachments/assets/a3195ff9-670b-4b1f-87f8-80c0dbcae7b2" />
+   <img width="625" height="340" alt="image" src="https://github.com/user-attachments/assets/c9d947f2-b071-440b-9ce8-00586325df9b" />
+4. 添加开机启动脚本
+   在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
+   ```
+   # 系统启动后等待20秒
+   sleep 20
+   
+   # 连续执行autologin.sh 10次
+   for i in 1 2 3 4 5 6 7 8 9 10; do
+     sh /root/autologin_multi_user.sh
+     sleep 5  # 每次执行间隔5秒
+   done
+   ```
+5. 添加计划任务脚本（可不添加）
+   本人建议可以给路由器设置一个定时重启，这样就可以每天路由器都会重启一次，然后自动登录
+   在**系统-启动项-计划任务**中，添加如下代码并保存：
+   ```
+   10 5 * * * sleep 30 && touch /etc/banner && reboot
+   # 每天5点10分，等待30秒后，自动重启
+   ```
+6. 断网自动重连脚本（太过暴力暂时不放了）
+7. 设置好了之后，路由器只要一开机就会自动登录了，多wan聚合成功效果如下：
+   <img width="717" height="282" alt="image" src="https://github.com/user-attachments/assets/3e7345dd-9024-4c2a-b674-fca13ada17ba" />
+   <img width="1090" height="520" alt="image" src="https://github.com/user-attachments/assets/178790f3-06fe-4826-a590-48b7ed26142a" />
+   <img width="1141" height="665" alt="image" src="https://github.com/user-attachments/assets/cfbef341-0af1-4630-a4bf-fb6444572099" />
+
+
+
+
+
 
    
