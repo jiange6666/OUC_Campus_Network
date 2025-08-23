@@ -34,10 +34,11 @@
    <img width="425" height="210" alt="image" src="https://github.com/user-attachments/assets/d156cc0c-6201-4cee-b22d-49fe59cb141d" />
 3. 在winscp中打开已经上传好的autologin_multi_user.sh，打开的时候有报错**不用管他**
    <img width="845" height="230" alt="image" src="https://github.com/user-attachments/assets/c33511f6-7e43-4272-9bdc-3ec58b845602" />
+
    然后更改里面的路由器接口名，校园网账号和密码
    <img width="750" height="204" alt="image" src="https://github.com/user-attachments/assets/a3195ff9-670b-4b1f-87f8-80c0dbcae7b2" />
    <img width="625" height="340" alt="image" src="https://github.com/user-attachments/assets/c9d947f2-b071-440b-9ce8-00586325df9b" />
-4. 添加开机启动脚本
+5. 添加开机启动脚本
    在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
    ```
    # 系统启动后等待20秒
@@ -49,15 +50,15 @@
      sleep 5  # 每次执行间隔5秒
    done
    ```
-5. 添加计划任务脚本（可不添加）
+6. 添加计划任务脚本（可不添加）
    本人建议可以给路由器设置一个定时重启，这样就可以每天路由器都会重启一次，然后自动登录
    在**系统-启动项-计划任务**中，添加如下代码并保存：
    ```
    10 5 * * * sleep 30 && touch /etc/banner && reboot
    # 每天5点10分，等待30秒后，自动重启
    ```
-6. 断网自动重连脚本（太过暴力暂时不放了）
-7. 设置好了之后，路由器只要一开机就会自动登录了，多wan聚合成功效果如下：
+7. 断网自动重连脚本（太过暴力暂时不放了）
+8. 设置好了之后，路由器只要一开机就会自动登录了，多wan聚合成功效果如下：
    <img width="717" height="282" alt="image" src="https://github.com/user-attachments/assets/3e7345dd-9024-4c2a-b674-fca13ada17ba" />
    <img width="1090" height="520" alt="image" src="https://github.com/user-attachments/assets/178790f3-06fe-4826-a590-48b7ed26142a" />
    <img width="1141" height="665" alt="image" src="https://github.com/user-attachments/assets/cfbef341-0af1-4630-a4bf-fb6444572099" />
