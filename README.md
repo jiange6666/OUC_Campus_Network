@@ -49,7 +49,7 @@
    # 系统启动后等待20秒
    sleep 20
    
-   # 连续执行autologin.sh 10次
+   # 连续执行autologin_multi_user.sh 10次
    for i in 1 2 3 4 5 6 7 8 9 10; do
      sh /root/autologin_multi_user.sh
      sleep 5  # 每次执行间隔5秒
