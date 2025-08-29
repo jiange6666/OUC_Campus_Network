@@ -40,6 +40,9 @@ for ETH in "${INTERFACES[@]}"; do
     else
         echo -e "\n$ETH无IP或MAC地址，无法登录"
     fi
+
+    sleep 5
+
 done
 
 sleep 1
