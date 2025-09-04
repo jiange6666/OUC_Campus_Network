@@ -61,6 +61,12 @@
    然后更改里面的路由器接口名，校园网账号和密码
    <img width="750" height="204" alt="image" src="https://github.com/user-attachments/assets/a3195ff9-670b-4b1f-87f8-80c0dbcae7b2" />
    <img width="625" height="340" alt="image" src="https://github.com/user-attachments/assets/c9d947f2-b071-440b-9ce8-00586325df9b" />
+
+   如果遇到下图这种类似跟ssl有关的报错（**没有这个错误的不用改**）：
+   <img width="813" height="141" alt="c7a96631ce66d1f09983f75e1199c6d2" src="https://github.com/user-attachments/assets/d6f7b07d-8c1c-4475-a206-6d6da056bb35" />
+   则在脚本的**curl后面添加-k来忽略ssl问题**，如下图所示，改完后别忘了**保存**
+   <img width="534" height="155" alt="c8cc3b3deaa5f7cdc3feeac425070632" src="https://github.com/user-attachments/assets/b4ab68ef-70a0-45e0-b86f-03ec3f664d49" />
+
 5. 添加开机启动脚本
    在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
    ```
