@@ -35,8 +35,13 @@ for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
 
     if [ -n "$IP" ]; then
         echo -e "正在登录$ETH..."
-        curl --interface "$ETH" --connect-timeout 5 \
-          "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}"
+        response=$(curl --interface "$ETH" --connect-timeout 5 --silent --show-error \
+        "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
+        if [ $? -eq 0 ]; then
+            echo -e "登录成功: $response"
+        else
+            echo -e "登录失败: $response"
+        fi
     else
         echo -e "\n$ETH无IP地址，无法登录"
     fi
@@ -62,9 +67,14 @@ for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
     echo -e "\n$ETH IP: ${IP:-未获取}\n$ETH MAC: ${MAC:-未获取}"
 
     if [ -n "$IP" ]; then
-        echo -e "正在再次登录$ETH..."
-        curl --interface "$ETH" --connect-timeout 5 \
-          "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}"
+        echo -e "正在登录$ETH..."
+        response=$(curl --interface "$ETH" --connect-timeout 5 --silent --show-error \
+        "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
+        if [ $? -eq 0 ]; then
+            echo -e "登录成功: $response"
+        else
+            echo -e "登录失败: $response"
+        fi
     else
         echo -e "\n$ETH无IP地址，无法登录"
     fi
