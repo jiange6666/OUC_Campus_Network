@@ -22,7 +22,7 @@ get_mac() {
     ip link show "$interface" | grep -o 'link/ether [^ ]*' | cut -d' ' -f2 | sed 's/://g'
 }
 
-for i in $(seq 0 2); do
+for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
     ETH="${INTERFACES[$i]}"
     USER="${USERS[$i]}"
     PASS="${PASSWORDS[$i]}"
@@ -49,7 +49,7 @@ echo -e "\n"
 echo -e "\n第二轮登录开始"
 
 # 第二轮登录
-for i in $(seq 0 2); do
+for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
     
     ETH="${INTERFACES[$i]}"
     USER="${USERS[$i]}"
