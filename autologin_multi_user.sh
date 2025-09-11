@@ -35,7 +35,7 @@ for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
 
     if [ -n "$IP" ]; then
         echo -e "正在登录$ETH..."
-        response=$(curl --interface "$ETH" --connect-timeout 5 --silent --show-error \
+        response=$(curl --interface "$IP" --connect-timeout 5 --silent --show-error \
         "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
         if [ $? -eq 0 ]; then
             echo -e "登录成功: $response"
@@ -68,7 +68,7 @@ for i in $(seq 0 $((${#INTERFACES[@]} - 1))); do
 
     if [ -n "$IP" ]; then
         echo -e "正在登录$ETH..."
-        response=$(curl --interface "$ETH" --connect-timeout 5 --silent --show-error \
+        response=$(curl --interface "$IP" --connect-timeout 5 --silent --show-error \
         "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
         if [ $? -eq 0 ]; then
             echo -e "登录成功: $response"
