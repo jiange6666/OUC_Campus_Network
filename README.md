@@ -35,6 +35,7 @@
 - 2025.9.10 修复脚本bug，优化登录方式
 - 2025.9.15 优化自动登录功能
 - 2025.9.21 增加windows直连带宽聚合方法，更新了exe登录工具
+- 2025.10.1 改进优化开机启动脚本代码
 
 
 ## **windows直连带宽聚合教程**请移步【windows直连带宽聚合教程.md】观看
@@ -76,14 +77,13 @@
 5. 添加开机启动脚本
    在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
    ```
-   # 系统启动后等待20秒
-   sleep 20
-   
-   # 连续执行autologin_multi_user.sh 10次
-   for i in 1 2 3 4 5 6 7 8 9 10; do
-     bash /root/autologin_multi_user.sh
-     sleep 5  # 每次执行间隔5秒
-   done
+
+   (sleep 30 && for i in {1..10}; do echo "执行第 $i 次 autologin_multi_user.sh" && echo "执行第 $i 次 autologin_multi_user.sh" | logger -t "AUTOLOGIN"; bash /root/autologin_multi_user.sh 2>&1 | tee /dev/tty | logger -t "AUTOLOGIN"; sleep 5; done) &
+   # 多次执行autologin_multi_user.sh脚本，输出同时显示在bash并写入系统日志，整体在后台执行，不影响开机主进程
+
+   (sleep 50 && mwan3 restart) &  # 启动后台进程，开机延迟50秒后重启mwan3服务（这行代码是应对一些特定的op系统负载均衡的的bug，没必要可以不加）
+
+   exit 0
    ```
    #### 注：
    **为什么我不用sh而是bash呢：**因为sh是bash的子集，所以用sh也可以，但是bash可以执行更多的命令，所以建议用bash，有一个**主要原因**就是，**sh不支持网口名字中有点号的，而bash支持**，所以如果网口名字中有点号的话，需要用bash。**有小部分openwrt固件为了空间而没有bash（一般是闪存比较小的路由器会有这种固件）**，请大家合理选用固件
@@ -99,8 +99,8 @@
 
    如果不想总重启路由器的话，也可以设置**每隔一段时间执行一次登录脚本**
    ```
-   */60 * * * * bash /root/autologin_multi_user.sh
-   # 每隔60分钟执行一次登录脚本
+   */120 * * * * bash /root/autologin_multi_user.sh
+   # 每隔120分钟执行一次登录脚本
    # 这只是例子，大家可以根据自己的需要设置时间间隔，尽量不要太频繁
    ```
 
