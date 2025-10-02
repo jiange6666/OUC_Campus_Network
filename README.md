@@ -78,7 +78,7 @@
 
 5. 添加开机启动脚本
    在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
-   ```
+   ```bash
 
    (sleep 30 && for i in {1..10}; do echo "执行第 $i 次 autologin_multi_user.sh" && echo "执行第 $i 次 autologin_multi_user.sh" | logger -t "AUTOLOGIN"; bash /root/autologin_multi_user.sh 2>&1 | tee /dev/tty | logger -t "AUTOLOGIN"; sleep 5; done) &
    # 多次执行autologin_multi_user.sh脚本，输出同时显示在bash并写入系统日志，整体在后台执行，不影响开机主进程
@@ -93,14 +93,14 @@
 6. 添加计划任务脚本（可不添加）
    本人建议可以给路由器设置一个定时重启，这样就可以每天路由器都会重启一次，然后自动登录
    在**系统-启动项-计划任务**中，添加如下代码并保存：
-   ```
+   ```bash
    10 5 * * * sleep 30 && touch /etc/banner && reboot
    # 每天5点10分，等待30秒后，自动重启
    # 这只是例子，大家尽量别用一样的时间，以防同时有很多登录校园网的请求，时间自己设置个方便的就行
    ```
 
    如果不想总重启路由器的话，也可以设置**每隔一段时间执行一次登录脚本**
-   ```
+   ```bash
    */120 * * * * bash /root/autologin_multi_user.sh
    # 每隔120分钟执行一次登录脚本
    # 这只是例子，大家可以根据自己的需要设置时间间隔，尽量不要太频繁
