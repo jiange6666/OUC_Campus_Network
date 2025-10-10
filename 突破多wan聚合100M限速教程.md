@@ -24,6 +24,7 @@
 
 -然后别忘了在登录脚本里添加登录这两个无线wan的账号和密码，自动登录脚本在Readme.md里有教程
 <img width="901" height="215" alt="2d2f2e150d96ee192885929a97237d15" src="https://github.com/user-attachments/assets/4f734d2d-09f5-4ff7-9b7c-0919e4d425b1" />
+
 最后保存并应用，然后重启路由器，就实现了多wan聚合突破100M的限制
 
 ## 效果：
