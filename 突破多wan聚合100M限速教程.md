@@ -3,10 +3,12 @@
 注意：
 首先，插网线是插到交换机上，而宿舍的网，是从墙上的一个ap上面引出来的，如图所示
 <img width="912" height="765" alt="7162c85f162093535cf5e04176ba338f" src="https://github.com/user-attachments/assets/0a29b92e-9197-4446-9c93-e00a1ce9fa7e" />
+
 如果是这种情况的话，就很难走两个上级设备，除非你能中继到别的宿舍的网，我宿舍是没法中继到
 
 但是在工位，ap和交换机是分开的，如图所示
 ![ba4eff686da71a315e83fada69f07675](https://github.com/user-attachments/assets/b88df512-1874-40e5-a98c-61ad3f0c47a4)![6807f1203af1b0a2c973aafdfb83bedf](https://github.com/user-attachments/assets/6cb7f1f3-c2e8-47e8-b894-da00613ac4c6)
+
 这种情况下的话，就可以走两个上级设备的网，从而突破多wan聚合限速100M的限制
 
 ## 教程开始
