@@ -26,6 +26,7 @@
 4. 把两个无线的WAN都**添加到负载均衡里**（**负载均衡网上都有教程，这里不再赘述**）。
 
 5. 别忘了**在登录脚本里添加登录这两个无线WAN的账号和密码。自动登录脚本在Readme.md里有教程**
+<img width="945" height="101" alt="6e256683e2317ce201dee09eae9a44c3" src="https://github.com/user-attachments/assets/35a1ff03-074d-4b21-8f5d-8f9f0662c1ac" />
 
 
 6. 最后保存并应用，然后重启路由器，就实现了多wan聚合突破100M的限制。
