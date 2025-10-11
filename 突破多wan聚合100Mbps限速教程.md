@@ -1,4 +1,4 @@
-# 突破多wan聚合100M限速教程
+# 突破多wan聚合100Mbps限速教程
 
 ## 注意事项
 此方法需要走**两个上级设备**。
@@ -10,12 +10,13 @@
 - 但在工位，**AP和交换机是分开的**，如图所示：
   ![ba4eff686da71a315e83fada69f07675](https://github.com/user-attachments/assets/b88df512-1874-40e5-a98c-61ad3f0c47a4)
   ![6807f1203af1b0a2c973aafdfb83bedf](https://github.com/user-attachments/assets/6cb7f1f3-c2e8-47e8-b894-da00613ac4c6)
-  - 这种情况下，就可以走两个上级设备的网，从而突破多wan聚合限速100M的限制。
+  - 这种情况下，就可以走两个上级设备的网，从而突破多wan聚合限速100Mbps的限制。
 
 ## 教程步骤
 1. 在OpenWrt的无线设置里，添加**无线中继**。**具体教程网上都有，这里不再赘述**。5G和2.4G都可以中继。
    ![6a873ea9918bcc861f2c146af6b40d2b](https://github.com/user-attachments/assets/4d5c15b0-d5a6-4e32-8d25-4993dd8d377d)
 
+2. 中继成功后，如图所示：
 2. 中继成功后，如图所示：
    ![9c602ce1d30a6e5d70297816820ce1b1](https://github.com/user-attachments/assets/003eb851-4ca2-4528-be95-965fa56b8110)
    - **注**：**要确保不要影响路由器本身的无线。如果扫描不到OUC的网，或者没中继成功，可以尝试切换信道**。
@@ -29,10 +30,10 @@
 <img width="945" height="101" alt="6e256683e2317ce201dee09eae9a44c3" src="https://github.com/user-attachments/assets/35a1ff03-074d-4b21-8f5d-8f9f0662c1ac" />
 
 
-6. 最后保存并应用，然后重启路由器，就实现了多wan聚合突破100M的限制。
+6. 最后保存并应用，然后重启路由器，就实现了多wan聚合突破100Mbps的限制。
 
 ## 效果
-多wan聚合本身有一点损耗。我这是2个有线加2个无线聚合的效果，就相当于4个WAN聚合。校园网一个端口限速40M，4个WAN聚合能达到140多M已经非常不错了。
+多wan聚合本身有一点损耗。我这是2个有线加2个无线聚合的效果，就相当于4个WAN聚合。校园网一个端口限速40Mbps，4个WAN聚合能达到140多Mbps已经非常不错了。
 
 - ![2d2f2e150d96ee192885929a97237d15](https://github.com/user-attachments/assets/b9bd86cb-0075-44d8-b0ae-a3de23e0c0f8)
 - ![9bfc0f2ea5e06cd15abef70ce5ec45c4](https://github.com/user-attachments/assets/775b490d-4fb4-454e-a3d3-3da2ad6c4bd6)
