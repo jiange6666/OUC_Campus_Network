@@ -80,8 +80,10 @@
 
    如果遇到下图这种类似跟ssl有关的报错（**没有这个错误的不用改**）：
    <img width="813" height="141" alt="c7a96631ce66d1f09983f75e1199c6d2" src="https://github.com/user-attachments/assets/d6f7b07d-8c1c-4475-a206-6d6da056bb35" />
+
    则在脚本的**curl后面添加-k来忽略ssl问题**，如下图所示，改完后别忘了**保存**
    <img width="534" height="155" alt="c8cc3b3deaa5f7cdc3feeac425070632" src="https://github.com/user-attachments/assets/b4ab68ef-70a0-45e0-b86f-03ec3f664d49" />
+   
 4. **有些地方或有些路由器**，需要**调整登录参数**才能登上去，**修改方式**如下：
    <img width="1334" height="560" alt="7e325543a20315d74d985a751a84870b" src="https://github.com/user-attachments/assets/d3540789-6eea-4d57-bbbe-18115f69962a" />
 
