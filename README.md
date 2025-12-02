@@ -63,8 +63,7 @@
    3. openwrt系统的路由器：配置好WAN口和负载均衡（网上有教程，有点技术门槛，可自己学习一下），然后输入账号密码，输入和账号密码对应的路由器每个WAN口的IP和MAC，如下图（IP是斜杠之前的，斜杠后面的数字是端口号，**MAC建议用全小写并且去掉冒号**）
       <img width="974" height="309" alt="820f6b35c7046747e80df54e43c15b77" src="https://github.com/user-attachments/assets/4931c55f-4e69-41a2-b8e4-531a276cfae4" />
    4. 有些地方（如西海岸校区的**听海苑**）可能会登不上去，就有可能是**ssl证书**的问题，则可**勾选跳过ssl**再登录
-   5. 有些地方或有些路由器，需要调整登录参数才能登上去，修改方式如下：
-      <img width="1334" height="560" alt="7e325543a20315d74d985a751a84870b" src="https://github.com/user-attachments/assets/d3540789-6eea-4d57-bbbe-18115f69962a" />
+
 
       
 
@@ -83,6 +82,8 @@
    <img width="813" height="141" alt="c7a96631ce66d1f09983f75e1199c6d2" src="https://github.com/user-attachments/assets/d6f7b07d-8c1c-4475-a206-6d6da056bb35" />
    则在脚本的**curl后面添加-k来忽略ssl问题**，如下图所示，改完后别忘了**保存**
    <img width="534" height="155" alt="c8cc3b3deaa5f7cdc3feeac425070632" src="https://github.com/user-attachments/assets/b4ab68ef-70a0-45e0-b86f-03ec3f664d49" />
+4. **有些地方或有些路由器**，需要**调整登录参数**才能登上去，**修改方式**如下：
+   <img width="1334" height="560" alt="7e325543a20315d74d985a751a84870b" src="https://github.com/user-attachments/assets/d3540789-6eea-4d57-bbbe-18115f69962a" />
 
 5. 添加开机启动脚本
    在**系统-启动项-本地启动脚本**中，添加如下代码并保存：
