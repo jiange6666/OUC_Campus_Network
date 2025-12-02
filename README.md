@@ -64,7 +64,9 @@
       <img width="974" height="309" alt="820f6b35c7046747e80df54e43c15b77" src="https://github.com/user-attachments/assets/4931c55f-4e69-41a2-b8e4-531a276cfae4" />
    4. 有些地方（如西海岸校区的**听海苑**）可能会登不上去，就有可能是**ssl证书**的问题，则可**勾选跳过ssl**再登录
    5. 有些地方或有些路由器，需要调整登录参数才能登上去，修改方式如下：
-   
+      <img width="1334" height="560" alt="7e325543a20315d74d985a751a84870b" src="https://github.com/user-attachments/assets/d3540789-6eea-4d57-bbbe-18115f69962a" />
+
+      
 
 ### 二、校园网多wan聚合自动登录脚本教程
 1. 多wan聚合自动登录脚本需配合**openwrt系统**的路由器使用，且路由器安装了**mwan3多wan聚合软件包**，并且配置**负载均衡**（自己上网查教程学习）
