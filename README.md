@@ -120,7 +120,7 @@
    （1）**添加计划任务日志**（可不添加）：记录**自动登录的日志**，可以在**计划任务的命令后面**添加如下代码，并且设置一个**每次开机就清空重新记录的功能**：
    ```bash
    #计划任务的命令后面添加如下代码
-   */120 * * * * bash /root/autologin_multi_user.sh &>> /root/autologin_multi_user.log
+   */120 * * * * echo "【脚本执行时间】$(date +'%Y-%m-%d %H:%M:%S')" >> /root/autologin_multi_user.log && bash /root/autologin_multi_user.sh >> /root/autologin_multi_user.log 2>&1
    #每隔120分钟执行一次登录脚本，并将日志输出到/root/autologin_multi_user.log文件中
    ```
    ```bash
