@@ -1,0 +1,1 @@
+sed -i 's/\r$//' /root/autologin_multi_user.sh
