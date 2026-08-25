@@ -44,7 +44,8 @@
 - 2026.8.25 这大半年来持续修复了诸多bug，优化了脚本；
 
    （1）且目前测试发现西海岸校区工程楼可以用单线多拨进行端口聚合时，可超过100Mbps,如下图的4个校园网端口聚合
-   <img width="746" height="223" alt="image" src="https://github.com/user-attachments/assets/6c309ace-e1ca-4bfe-96ee-36edd6d24443" />
+   <img width="756" height="250" alt="image" src="https://github.com/user-attachments/assets/7feb3f0b-4935-49bc-a375-677fd29b42a6" />
+
 
    （2）目前发现望海苑宿舍的ap的网口速度可能是本身只有100Mbps，故纯用网线无法超过100Mbps
 
