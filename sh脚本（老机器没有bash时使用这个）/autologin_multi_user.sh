@@ -43,7 +43,7 @@ do_login() {
     if [ -n "$ip" ]; then
         echo "正在登录$eth..."
         # 关键修正：--interface 绑定网卡接口名，而非IP地址
-        response=$(curl --interface "$ip" --connect-timeout 5 --silent --show-error --insecure \
+        response=$(curl -k --interface "$ip" --connect-timeout 5 --silent --show-error --insecure \
         "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=${user}&user_password=${pass}&wlan_user_ip=${ip}&wlan_user_mac=${mac}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${rand_v}")
         if [ $? -eq 0 ]; then
             echo "登录请求已发送: $response"
