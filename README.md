@@ -47,7 +47,7 @@
    <img width="756" height="250" alt="image" src="https://github.com/user-attachments/assets/7feb3f0b-4935-49bc-a375-677fd29b42a6" />
 
 
-   （2）目前发现望海苑宿舍的ap的网口速度可能是本身只有100Mbps，故纯用网线无法超过100Mbps
+   （2）目前发现望海苑宿舍的ap设备似乎是百兆网口，故纯用网线无法超过100Mbps
 
 
 
