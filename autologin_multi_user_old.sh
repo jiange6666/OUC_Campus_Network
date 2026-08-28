@@ -1,0 +1,91 @@
+#!/bin/sh
+
+# ====== 可配置路由器多接口，多账号密码，但是接口要和账号一一对应，用几个就填几个 ==========
+# 注意：sh 不支持数组，接口/账号/密码用空格分隔，三者数量必须一一对应
+INTERFACES="eth1 eth0.2 eth0.3" #例子
+USERS="1234567890 0987654321 123123123" #例子
+PASSWORDS="123456 654321 000000" #例子
+# ===============================================================
+
+echo -e "\n================================="
+echo -e "\n中国海洋大学校园网登录脚本开始"
+echo -e "\n================================="
+
+sleep 2
+
+get_ip() {
+    local interface="$1"
+    ip addr show "$interface" 2>/dev/null | grep "inet " | awk '{print $2}' | cut -d/ -f1
+}
+
+get_mac() {
+    local interface="$1"
+    ip link show "$interface" | grep -o 'link/ether [^ ]*' | cut -d' ' -f2 | sed 's/://g'
+}
+
+# 第一轮登录
+i=0
+for ETH in $INTERFACES; do
+    i=$((i + 1))
+    USER=$(echo $USERS | cut -d' ' -f$i)
+    PASS=$(echo $PASSWORDS | cut -d' ' -f$i)
+    IP=$(get_ip "$ETH")
+    MAC=$(get_mac "$ETH")
+    RAND_V=$(awk 'BEGIN{srand(); printf "%d", 1000 + rand() * 9000}')
+
+    echo -e "\n"
+    echo -e "\n$ETH IP: ${IP:-未获取}\n$ETH MAC: ${MAC:-未获取}"
+
+    if [ -n "$IP" ]; then
+        echo -e "正在登录$ETH..."
+        response=$(curl --interface "$IP" --connect-timeout 5 --silent --show-error --insecure \
+        "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
+        if [ $? -eq 0 ]; then
+            echo -e "登录成功: $response"
+        else
+            echo -e "登录失败: $response"
+        fi
+    else
+        echo -e "\n$ETH无IP地址，无法登录"
+    fi
+    sleep 5
+done
+
+sleep 5
+
+echo -e "\n"
+echo -e "\n第二轮登录开始"
+
+# 第二轮登录
+i=0
+for ETH in $INTERFACES; do
+    i=$((i + 1))
+    USER=$(echo $USERS | cut -d' ' -f$i)
+    PASS=$(echo $PASSWORDS | cut -d' ' -f$i)
+    IP=$(get_ip "$ETH")
+    MAC=$(get_mac "$ETH")
+    RAND_V=$(awk 'BEGIN{srand(); printf "%d", 1000 + rand() * 9000}')
+
+    echo -e "\n"
+    echo -e "\n$ETH IP: ${IP:-未获取}\n$ETH MAC: ${MAC:-未获取}"
+
+    if [ -n "$IP" ]; then
+        echo -e "正在登录$ETH..."
+        response=$(curl --interface "$IP" --connect-timeout 5 --silent --show-error --insecure \
+        "https://xha.ouc.edu.cn:802/eportal/portal/login?callback=dr1003&login_method=1&user_account=$USER&user_password=$PASS&wlan_user_ip=${IP}&wlan_user_mac=${MAC}&jsVersion=4.1&terminal_type=1&lang=zh-cn&v=${RAND_V}")
+        if [ $? -eq 0 ]; then
+            echo -e "登录成功: $response"
+        else
+            echo -e "登录失败: $response"
+        fi
+    else
+        echo -e "\n$ETH无IP地址，无法登录"
+    fi
+    sleep 5
+done
+
+sleep 1
+
+echo -e "\n================================="
+echo -e "\n登录流程结束"
+echo -e "\n================================="
