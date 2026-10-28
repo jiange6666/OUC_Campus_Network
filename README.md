@@ -51,6 +51,10 @@
 
 
    （2）目前发现望海苑宿舍的ap设备似乎是百兆网口，故纯用网线无法超过100Mbps
+- 2026.10.27 截止目前，Openwrt带宽聚合西海岸校区的听海苑5号楼，7号楼实测可用，听海苑其余楼宇仍有待测试
+- 2026.10.28 更新了【中国海洋大学校园网登录工具.exe】，更新了界面，大幅提升使用体验
+  <img width="974" height="574" alt="b6623cef234cbae7519476fb0df37589" src="https://github.com/user-attachments/assets/a4328f16-f41b-48a8-b666-eefe2bbfb461" />
+<img width="974" height="594" alt="c5b7a69f35ddeb957a1fbfe1310050b2" src="https://github.com/user-attachments/assets/969703ca-8846-4641-b473-e3db151b19ab" />
 
 
 
