@@ -58,7 +58,7 @@
 - 2026.10.28 更新了【中国海洋大学校园网登录工具.exe】，更新了界面，大幅提升使用体验
   <img width="974" height="574" alt="b6623cef234cbae7519476fb0df37589" src="https://github.com/user-attachments/assets/a4328f16-f41b-48a8-b666-eefe2bbfb461" />
 <img width="974" height="594" alt="c5b7a69f35ddeb957a1fbfe1310050b2" src="https://github.com/user-attachments/assets/969703ca-8846-4641-b473-e3db151b19ab" />
-- 2026.11.27 更新了【多WAN带宽监控插件(Netwatch)】，可监控多个WAN口的带宽，包括下行RX和上行TX，以及累计流量。安装及使用说明见【NetWatch-README.md】
+- 2026.11.27 更新了Openwrt路由器中的【多WAN带宽监控(Netwatch)】插件，可监控多个WAN口的带宽，包括下行RX和上行TX，以及累计流量。安装及使用说明见【NetWatch-README.md】
 
 
 
