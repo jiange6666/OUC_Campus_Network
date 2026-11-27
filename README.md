@@ -57,8 +57,9 @@
 - 2026.10.27 截止目前，Openwrt带宽聚合西海岸校区的听海苑5号楼，7号楼实测可用，听海苑其余楼宇仍有待测试
 - 2026.10.28 更新了【中国海洋大学校园网登录工具.exe】，更新了界面，大幅提升使用体验
   <img width="974" height="574" alt="b6623cef234cbae7519476fb0df37589" src="https://github.com/user-attachments/assets/a4328f16-f41b-48a8-b666-eefe2bbfb461" />
-<img width="974" height="594" alt="c5b7a69f35ddeb957a1fbfe1310050b2" src="https://github.com/user-attachments/assets/969703ca-8846-4641-b473-e3db151b19ab" />
 - 2026.11.27 更新了Openwrt路由器中的【多WAN带宽监控(Netwatch)】插件，可监控多个WAN口的带宽，包括下行RX和上行TX，以及累计流量。安装及使用说明见【NetWatch-README.md】
+  <img width="1515" height="1215" alt="707164798584edbfebaf00033a57b9fb" src="https://github.com/user-attachments/assets/2c6595ab-585e-48d5-bd60-3376e2eeab71" />
+
 
 
 
