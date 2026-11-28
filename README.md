@@ -60,8 +60,7 @@ QQ 群：**958422022**，欢迎加入交流
   <img width="974" height="574" alt="b6623cef234cbae7519476fb0df37589" src="https://github.com/user-attachments/assets/a4328f16-f41b-48a8-b666-eefe2bbfb461" />
 - 2026.11.27 更新了Openwrt路由器中的【多WAN带宽监控(Netwatch)】插件，可监控多个WAN口的带宽，包括下行RX和上行TX，以及累计流量。安装及使用说明见【NetWatch-README.md】
   <img width="1515" height="1215" alt="707164798584edbfebaf00033a57b9fb" src="https://github.com/user-attachments/assets/2c6595ab-585e-48d5-bd60-3376e2eeab71" />
-
-
+- 2026.11.28 据说西海岸听海苑有人用了这方法，**买了20个端口，聚合能跑到600-800Mbps**
 
 
 ## <font color="red">**windows直连带宽聚合教程**请移步【windows直连带宽聚合教程.md】观看</font>
